@@ -17,6 +17,10 @@ export default function Home() {
         <p className={styles.description}>
           New website comming soon! 
         </p>
+        
+        <p className={styles.description}>
+          Created a development branch
+        </p>
 
         
       </main>
