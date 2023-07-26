@@ -50,8 +50,11 @@ export default function Optimus100() {
                 <Typography
                   variant="h6"
                   component="h3"
-                  sx={{ fontWeight: "700", color: "#2962ff" }}
-                  gutterBottom
+                  sx={{
+                    marginBottom: "35px",
+                    fontWeight: "700",
+                    color: "#2962ff",
+                  }}
                 >
                   Price: ৳ 15000
                 </Typography>
