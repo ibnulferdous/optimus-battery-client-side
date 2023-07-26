@@ -40,18 +40,20 @@ export default function Optimus100() {
                 <Typography
                   variant="h4"
                   component="h1"
-                  sx={{ fontWeight: "700" }}
-                  gutterBottom
+                  sx={{ fontWeight: "700", marginBottom: "25px" }}
                 >
                   Optimus 100Ah (Dry Cell)
                 </Typography>
+
                 <Typography
                   variant="h6"
                   component="h3"
-                  sx={{ marginBottom: "35px", fontWeight: "700" }}
+                  sx={{ fontWeight: "700" }}
+                  gutterBottom
                 >
                   Price: ৳ 15000
                 </Typography>
+
                 <Typography
                   variant="body1"
                   gutterBottom
@@ -79,13 +81,10 @@ export default function Optimus100() {
                         <ListItem>
                           <ListItemAvatar>
                             <Avatar sx={{ bgcolor: "#2962ff" }}>
-                              <SafetyCheckIcon />
+                              <BatteryChargingFullIcon />
                             </Avatar>
                           </ListItemAvatar>
-                          <ListItemText
-                            primary="Warrenty"
-                            secondary="24* Months"
-                          />
+                          <ListItemText primary="Capacity" secondary="100Ah" />
                         </ListItem>
                       </List>
                     </Grid>
@@ -99,10 +98,13 @@ export default function Optimus100() {
                         <ListItem>
                           <ListItemAvatar>
                             <Avatar sx={{ bgcolor: "#2962ff" }}>
-                              <BatteryChargingFullIcon />
+                              <SafetyCheckIcon />
                             </Avatar>
                           </ListItemAvatar>
-                          <ListItemText primary="Capacity" secondary="100Ah" />
+                          <ListItemText
+                            primary="Warrenty"
+                            secondary="24* Months"
+                          />
                         </ListItem>
                       </List>
                     </Grid>
