@@ -1,4 +1,4 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container, Paper, Typography } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -23,18 +23,20 @@ export default function Optimus100() {
       <main>
         <Container sx={{ marginBlock: "100px" }} fixed>
           <Box>
-            <Grid container spacing={8}>
+            <Grid container spacing={12}>
               <Grid xs={12} md={6}>
-                <Image
-                  src="/images/100-dry-cell-battery.jpg"
-                  width={600}
-                  height={600}
-                  alt="Optimus 100Ah dry cell battery for ips/ups/inverter"
-                  style={{
-                    maxWidth: "100%",
-                    height: "auto",
-                  }}
-                />
+                <Paper variant="outlined" square>
+                  <Image
+                    src="/images/100-dry-cell-battery.jpg"
+                    width={600}
+                    height={600}
+                    alt="Optimus 100Ah dry cell battery for ips/ups/inverter"
+                    style={{
+                      maxWidth: "100%",
+                      height: "auto",
+                    }}
+                  />
+                </Paper>
               </Grid>
               <Grid xs={12} md={6}>
                 <Typography
@@ -48,7 +50,11 @@ export default function Optimus100() {
                 <Typography
                   variant="h6"
                   component="h3"
-                  sx={{ marginBottom: "35px", fontWeight: "700" }}
+                  sx={{
+                    marginBottom: "35px",
+                    fontWeight: "700",
+                    color: "#2962ff",
+                  }}
                 >
                   Price: ৳ 15000
                 </Typography>
