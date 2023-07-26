@@ -17,7 +17,7 @@ export default function SingleProduct({ product }) {
     price,
     type,
     voltage,
-    warrenty,
+    warranty,
     weight,
   } = product;
 
@@ -35,7 +35,7 @@ export default function SingleProduct({ product }) {
           capacity={capacity}
           description={description}
           price={price}
-          warrenty={warrenty}
+          warranty={warranty}
         />
       </main>
     </>

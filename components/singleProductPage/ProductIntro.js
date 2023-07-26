@@ -11,7 +11,7 @@ import Image from "next/image";
 import SafetyCheckIcon from "@mui/icons-material/SafetyCheck";
 import BatteryChargingFullIcon from "@mui/icons-material/BatteryChargingFull";
 
-const ProductIntro = ({ model, capacity, description, price, warrenty }) => {
+const ProductIntro = ({ model, capacity, description, price, warranty }) => {
   return (
     <div>
       <Container sx={{ marginBlock: "100px" }} fixed>
@@ -96,8 +96,8 @@ const ProductIntro = ({ model, capacity, description, price, warrenty }) => {
                           </Avatar>
                         </ListItemAvatar>
                         <ListItemText
-                          primary="Warrenty"
-                          secondary={`${warrenty}* Months`}
+                          primary="Warranty"
+                          secondary={`${warranty}* Months`}
                         />
                       </ListItem>
                     </List>
