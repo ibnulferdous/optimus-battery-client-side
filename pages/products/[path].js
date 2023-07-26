@@ -1,54 +1,52 @@
-// import clientPromise from "../lib/mongodb";
+import clientPromise from "../../lib/mongodb";
 
-// export default function SingleProduct() {
-//   return (
-//     <>
-//       <h1>Hello</h1>
-//     </>
-//   );
-// }
+export default function SingleProduct({ product }) {
+  console.log(product);
+  return (
+    <>
+      <h1>{product.model}</h1>
+    </>
+  );
+}
 
-// export async function getStaticProps() {
-//   try {
-//     const client = await clientPromise;
-//     const db = client.db("optimus_battery");
+export async function getStaticPaths() {
+  try {
+    const client = await clientPromise;
+    const db = client.db("optimus_battery");
 
-//     const products = await db.collection("products").find().toArray();
+    const products = await db.collection("products").find().toArray();
 
-//     return {
-//       props: { products: JSON.parse(JSON.stringify(products)) },
-//       revalidate: 1,
-//     };
-//   } catch (e) {
-//     console.error(e);
-//   }
-// }
+    const data = JSON.parse(JSON.stringify(products));
 
-// export async function getStaticPaths() {
-//   try {
-//     const client = await clientPromise;
-//     const db = client.db("optimus_battery");
+    const paths = data.map((product) => {
+      return {
+        params: { path: product.path.toString() },
+      };
+    });
 
-//     const products = await db.collection("products").find().toArray();
+    return {
+      paths,
+      fallback: false,
+    };
+  } catch (e) {
+    console.error(e);
+  }
+}
 
-//     const data = JSON.parse(products);
+export async function getStaticProps({ params }) {
+  const path = params.path;
 
-//     const paths = products.map((product) => {
-//       return {
-//         params: { path: product.path.toString },
-//       };
-//     });
+  try {
+    const client = await clientPromise;
+    const db = client.db("optimus_battery");
 
-//     return {
-//       // paths: [ { params: {path: val} }, { params: {path: val} }, { params: {path: val} } ]
-//       paths,
-//     };
-//   } catch (e) {
-//     console.error(e);
-//   }
+    const product = await db.collection("products").findOne({ path });
 
-//   // return {
-
-//   //   fallback: false,
-//   // };
-// }
+    return {
+      props: { product: JSON.parse(JSON.stringify(product)) },
+      revalidate: 1,
+    };
+  } catch (e) {
+    console.error(e);
+  }
+}
