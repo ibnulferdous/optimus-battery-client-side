@@ -8,7 +8,6 @@ export default function AllProducts({ products }) {
           <div key={_id}>
             <h1>{model}</h1>
             <p>{description}</p>
-            <p>abc</p>
           </div>
         ))}
       </div>
