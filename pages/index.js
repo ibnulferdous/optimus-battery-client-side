@@ -14,8 +14,6 @@ export default function Home({ isConnected }) {
 
       <main>
         <h1 className={styles.title}>Welcome to Optimus Battery</h1>
-
-        <p className={styles.description}>New website comming soon!</p>
       </main>
 
       {isConnected ? (
