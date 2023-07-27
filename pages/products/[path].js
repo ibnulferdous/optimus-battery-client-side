@@ -1,7 +1,9 @@
 // Mongodb connection
+import { Box } from "@mui/material";
 import clientPromise from "../../lib/mongodb";
 import Head from "next/head";
-import ProductIntro from "../../components/singleProductPage/ProductIntro";
+import ProductIntro from "../../components/singleProductPage/Product_Intro";
+import ProductSpecifications from "../../components/singleProductPage/Product_Specifications";
 
 export default function SingleProduct({ product }) {
   const {
@@ -9,9 +11,6 @@ export default function SingleProduct({ product }) {
     capacity,
     country_of_origin,
     description,
-    width,
-    height,
-    length,
     model,
     path,
     price,
@@ -19,7 +18,13 @@ export default function SingleProduct({ product }) {
     voltage,
     warranty,
     weight,
+    length,
+    width,
+    height,
+    image_name,
   } = product;
+
+  console.log(product);
 
   return (
     <>
@@ -30,13 +35,31 @@ export default function SingleProduct({ product }) {
       </Head>
 
       <main>
-        <ProductIntro
-          model={model}
-          capacity={capacity}
-          description={description}
-          price={price}
-          warranty={warranty}
-        />
+        <Box sx={{ marginBlock: { xs: "75px", md: "100px" } }}>
+          <ProductIntro
+            model={model}
+            capacity={capacity}
+            description={description}
+            price={price}
+            warranty={warranty}
+            image_name={image_name}
+          />
+          <ProductSpecifications
+            model={model}
+            capacity={capacity}
+            description={description}
+            price={price}
+            warranty={warranty}
+            type={type}
+            voltage={voltage}
+            application={application}
+            country_of_origin={country_of_origin}
+            weight={weight}
+            length={length}
+            width={width}
+            height={height}
+          />
+        </Box>
       </main>
     </>
   );
