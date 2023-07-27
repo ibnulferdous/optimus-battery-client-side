@@ -24,8 +24,6 @@ const ProductSpecifications = (props) => {
     application,
   } = props;
 
-  console.log(length);
-
   return (
     <section>
       <Container
