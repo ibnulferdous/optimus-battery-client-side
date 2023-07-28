@@ -4,6 +4,7 @@ import clientPromise from "../../lib/mongodb";
 import Head from "next/head";
 import ProductIntro from "../../components/singleProductPage/Product_Intro";
 import ProductSpecifications from "../../components/singleProductPage/Product_Specifications";
+import SectionTwo from "../../components/singleProductPage/Section_two";
 
 export default function SingleProduct({ product }) {
   const {
@@ -44,7 +45,7 @@ export default function SingleProduct({ product }) {
             warranty={warranty}
             image_name={image_name}
           />
-          <ProductSpecifications
+          <SectionTwo
             model={model}
             capacity={capacity}
             description={description}

@@ -47,30 +47,26 @@ const ProductIntro = (props) => {
             <Typography
               variant="h6"
               component="h2"
+              color="primary.main"
               sx={{
                 marginBottom: "35px",
                 fontWeight: "700",
-                color: "#2962ff",
               }}
             >
               Price: ৳{price}
             </Typography>
 
-            <Typography variant="body1" gutterBottom sx={{ lineHeight: "1.8" }}>
+            <Typography variant="body2" gutterBottom sx={{ lineHeight: "1.8" }}>
               {description}
             </Typography>
 
             <Box>
-              <Grid container spacing={2}>
+              <Grid container spacing={{ xs: 0, sm: 1, md: 2 }}>
                 <Grid xs={6}>
-                  <List
-                    sx={{
-                      width: "100%",
-                    }}
-                  >
-                    <ListItem>
+                  <List dense>
+                    <ListItem disableGutters>
                       <ListItemAvatar>
-                        <Avatar sx={{ bgcolor: "#2962ff" }}>
+                        <Avatar sx={{ bgcolor: "primary.main" }}>
                           <BatteryChargingFullIcon />
                         </Avatar>
                       </ListItemAvatar>
@@ -83,14 +79,10 @@ const ProductIntro = (props) => {
                 </Grid>
 
                 <Grid xs={6}>
-                  <List
-                    sx={{
-                      width: "100%",
-                    }}
-                  >
-                    <ListItem>
+                  <List dense>
+                    <ListItem disableGutters>
                       <ListItemAvatar>
-                        <Avatar sx={{ bgcolor: "#2962ff" }}>
+                        <Avatar sx={{ bgcolor: "primary.main" }}>
                           <SafetyCheckIcon />
                         </Avatar>
                       </ListItemAvatar>
