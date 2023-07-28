@@ -1,116 +1,188 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
-import Divider from "@mui/material/Divider";
-import Drawer from "@mui/material/Drawer";
-import IconButton from "@mui/material/IconButton";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
-import MenuIcon from "@mui/icons-material/Menu";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import PropTypes from "prop-types";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
+import useScrollTrigger from "@mui/material/useScrollTrigger";
+import Slide from "@mui/material/Slide";
+
+// Icons
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+
+import { usePathname } from "next/navigation";
 
 // Next Image
 import Image from "next/image";
+import Link from "next/link";
 
-const drawerWidth = 240;
-const navItems = ["Home", "About", "Contact"];
+const navItems = [
+  {
+    text: "Home",
+    link: "/",
+  },
+  {
+    text: "100Ah",
+    link: "/products/optimus-100ah",
+  },
+  {
+    text: "130Ah",
+    link: "/products/optimus-130ah",
+  },
+];
 
-export default function HeaderNav(props) {
-  const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-
-  const handleDrawerToggle = () => {
-    setMobileOpen((prevState) => !prevState);
-  };
-
-  const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
-      </Typography>
-      <Divider />
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
-
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
+// Function to implement hid on scroll
+function HideOnScroll(props) {
+  const { children, window } = props;
+  // Trigger when user scroll
+  const trigger = useScrollTrigger();
 
   return (
-    <Box sx={{ display: "flex" }}>
-      <CssBaseline />
-      <AppBar component="nav">
-        <Toolbar sx={{ justifyContent: "space-between" }}>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
-          >
-            <MenuIcon />
-          </IconButton>
-
-          {/* Optimus Logo */}
-          <Image
-            src="/images/optimus-battery-logo-light-1.png"
-            width={150}
-            height={25}
-            alt="Optimus battery logo"
-            style={{ maxWidth: "100%", height: "auto" }}
-          />
-
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: "#fff" }}>
-                {item}
-              </Button>
-            ))}
-          </Box>
-        </Toolbar>
-      </AppBar>
-      <Box component="nav">
-        <Drawer
-          container={container}
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
-              width: drawerWidth,
-            },
-          }}
-        >
-          {drawer}
-        </Drawer>
-      </Box>
-    </Box>
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
   );
 }
 
-HeaderNav.propTypes = {
+HideOnScroll.propTypes = {
+  children: PropTypes.element.isRequired,
   /**
    * Injected by the documentation to work in an iframe.
    * You won't need it on your project.
    */
   window: PropTypes.func,
 };
+
+export default function HeaderNav(props) {
+  const pathname = usePathname();
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+  return (
+    <React.Fragment>
+      <CssBaseline />
+      <HideOnScroll {...props}>
+        {/* Header navigation starts */}
+
+        <AppBar>
+          <Container maxWidth="lg">
+            <Toolbar
+              disableGutters
+              sx={{ justifyContent: "space-between", alignItems: "center" }}
+            >
+              {/* Optimus Logo */}
+              <Link href="/">
+                <Image
+                  src="/images/optimus-battery-logo-light-1.png"
+                  width={150}
+                  height={25}
+                  alt="Optimus battery logo"
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto",
+                  }}
+                />
+              </Link>
+
+              {/* Menu for tablet and desktop */}
+              <Box sx={{ display: { xs: "none", sm: "block" } }}>
+                {navItems.map((item, index) => (
+                  <Link key={index} href={item.link}>
+                    <Button
+                      sx={{
+                        color: pathname == item.link ? "#fff" : "#f0f0f0df",
+                        paddingInline: "20px",
+                        letterSpacing: "1.5px",
+                        textDecoration:
+                          pathname == item.link ? "underline" : "none",
+                      }}
+                    >
+                      {item.text}
+                    </Button>
+                  </Link>
+                ))}
+              </Box>
+
+              {/* Menu for mobile */}
+              <Box
+                sx={{
+                  flexGrow: 1,
+                  justifyContent: "flex-end",
+                  display: { xs: "flex", sm: "none" },
+                }}
+              >
+                <IconButton
+                  size="large"
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  onClick={handleOpenNavMenu}
+                  color="inherit"
+                >
+                  <MenuIcon />
+                </IconButton>
+                <Menu
+                  id="menu-appbar"
+                  anchorEl={anchorElNav}
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "right",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "left",
+                  }}
+                  open={Boolean(anchorElNav)}
+                  onClose={handleCloseNavMenu}
+                  sx={{
+                    display: { xs: "block", md: "none" },
+                    "& .MuiPaper-root": {
+                      width: "100%",
+                      maxWidth: "250px",
+                    },
+                  }}
+                >
+                  {navItems.map((item, index) => (
+                    <MenuItem
+                      key={index}
+                      onClick={handleCloseNavMenu}
+                      sx={{ width: "100%" }}
+                    >
+                      <Link href={item.link} style={{ width: "100%" }}>
+                        <Button
+                          variant="text"
+                          sx={{
+                            color: pathname == item.link ? "" : "#000",
+                          }}
+                        >
+                          {item.text}
+                        </Button>
+                      </Link>
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Box>
+            </Toolbar>
+          </Container>
+        </AppBar>
+
+        {/* Header navigation ends */}
+      </HideOnScroll>
+      <Toolbar />
+    </React.Fragment>
+  );
+}
