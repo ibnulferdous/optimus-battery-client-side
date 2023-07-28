@@ -16,6 +16,8 @@ import Slide from "@mui/material/Slide";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 
+import { usePathname } from "next/navigation";
+
 // Next Image
 import Image from "next/image";
 import Link from "next/link";
@@ -58,6 +60,7 @@ HideOnScroll.propTypes = {
 };
 
 export default function HeaderNav(props) {
+  const pathname = usePathname();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -76,7 +79,10 @@ export default function HeaderNav(props) {
 
         <AppBar>
           <Container maxWidth="lg">
-            <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
+            <Toolbar
+              disableGutters
+              sx={{ justifyContent: "space-between", alignItems: "center" }}
+            >
               {/* Optimus Logo */}
               <Link href="/">
                 <Image
@@ -95,7 +101,15 @@ export default function HeaderNav(props) {
               <Box sx={{ display: { xs: "none", sm: "block" } }}>
                 {navItems.map((item, index) => (
                   <Link key={index} href={item.link}>
-                    <Button sx={{ color: "#fff", paddingInline: "20px" }}>
+                    <Button
+                      sx={{
+                        color: pathname == item.link ? "#fff" : "#f0f0f0df",
+                        paddingInline: "20px",
+                        letterSpacing: "1.5px",
+                        textDecoration:
+                          pathname == item.link ? "underline" : "none",
+                      }}
+                    >
                       {item.text}
                     </Button>
                   </Link>
@@ -138,13 +152,25 @@ export default function HeaderNav(props) {
                     display: { xs: "block", md: "none" },
                     "& .MuiPaper-root": {
                       width: "100%",
+                      maxWidth: "250px",
                     },
                   }}
                 >
                   {navItems.map((item, index) => (
-                    <MenuItem key={index} onClick={handleCloseNavMenu}>
-                      <Link href={item.link}>
-                        <Button variant="text">{item.text}</Button>
+                    <MenuItem
+                      key={index}
+                      onClick={handleCloseNavMenu}
+                      sx={{ width: "100%" }}
+                    >
+                      <Link href={item.link} style={{ width: "100%" }}>
+                        <Button
+                          variant="text"
+                          sx={{
+                            color: pathname == item.link ? "" : "#000",
+                          }}
+                        >
+                          {item.text}
+                        </Button>
                       </Link>
                     </MenuItem>
                   ))}
