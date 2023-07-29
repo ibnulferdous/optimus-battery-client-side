@@ -27,7 +27,7 @@ const ProductIntro = (props) => {
                 src={`/images/${images[0]}`}
                 width={600}
                 height={600}
-                alt={`${model}ah battery for ips/ups/inverter`}
+                alt={`${model} battery for ips/ups/inverter`}
                 priority="true"
                 quality={100}
                 style={{
@@ -44,7 +44,7 @@ const ProductIntro = (props) => {
               sx={{ fontWeight: "700" }}
               gutterBottom
             >
-              {model}Ah
+              {model}
             </Typography>
 
             <Typography

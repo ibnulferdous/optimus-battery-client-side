@@ -28,7 +28,7 @@ const ProductSpecifications = (props) => {
   const tableInfo = [
     {
       text: "Brand & Model",
-      value: `${model}Ah`,
+      value: `${model}`,
     },
     {
       text: "Capacity",

@@ -28,12 +28,8 @@ const navItems = [
     link: "/",
   },
   {
-    text: "100Ah",
-    link: "/products/optimus-100ah",
-  },
-  {
-    text: "130Ah",
-    link: "/products/optimus-130ah",
+    text: "Products",
+    link: "/#all-products",
   },
 ];
 
@@ -77,7 +73,7 @@ export default function HeaderNav(props) {
       <HideOnScroll {...props}>
         {/* Header navigation starts */}
 
-        <AppBar>
+        <AppBar sx={{ boxShadow: 0, borderBottom: "1px solid #fff" }}>
           <Container maxWidth="lg">
             <Toolbar
               disableGutters
@@ -107,6 +103,9 @@ export default function HeaderNav(props) {
                         color: pathname == item.link ? "#fff" : "#f0f0f0df",
                         paddingInline: "20px",
                         letterSpacing: "1.25px",
+                        "&:hover": {
+                          textDecoration: "underline",
+                        },
                       }}
                     >
                       {item.text}
