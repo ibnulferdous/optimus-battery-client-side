@@ -38,8 +38,6 @@ export default function AllProductsSection({ products }) {
                       width={400}
                       height={400}
                       alt={`${product.model} battery for ips/ups/inverter`}
-                      priority="true"
-                      quality={100}
                       style={{
                         maxWidth: "100%",
                         height: "auto",
