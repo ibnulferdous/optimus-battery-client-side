@@ -28,6 +28,10 @@ const navItems = [
     link: "/",
   },
   {
+    text: "Products",
+    link: "/#all-products",
+  },
+  {
     text: "100Ah",
     link: "/products/optimus-100ah",
   },
