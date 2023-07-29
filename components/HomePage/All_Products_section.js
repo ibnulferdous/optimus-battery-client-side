@@ -4,9 +4,9 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Unstable_Grid2";
 import Image from "next/image";
 import Paper from "@mui/material/Paper";
-import Typography from "@mui/material/Typography";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import Link from "next/link";
-import styles from "../../styles/Home.module.css";
+import Typography from "@mui/material/Typography";
 
 export default function AllProductsSection({ products }) {
   console.log(products);
@@ -58,13 +58,20 @@ export default function AllProductsSection({ products }) {
                       {product.model}Ah
                     </Typography>
 
-                    <Typography variant="subtitle1" component="h5" gutterBottom>
+                    <Typography variant="subtitle1" component="h5">
                       Price: ৳{product.price}
                     </Typography>
+
                     <Button
                       variant="text"
-                      size="small"
-                      sx={{ width: "100%", mt: 2 }}
+                      sx={{
+                        width: "100%",
+                        mt: 2,
+                        "&:hover": {
+                          textDecoration: "underline",
+                        },
+                      }}
+                      endIcon={<KeyboardArrowRightIcon />}
                     >
                       View Details
                     </Button>
