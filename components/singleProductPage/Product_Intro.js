@@ -1,18 +1,21 @@
-import { Box, Container, Paper, Typography } from "@mui/material";
+import Avatar from "@mui/material/Avatar";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
 import Grid from "@mui/material/Unstable_Grid2";
+import Image from "next/image";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
-import Avatar from "@mui/material/Avatar";
-import Image from "next/image";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
 
 // Material Icon
 import SafetyCheckIcon from "@mui/icons-material/SafetyCheck";
 import BatteryChargingFullIcon from "@mui/icons-material/BatteryChargingFull";
 
 const ProductIntro = (props) => {
-  const { model, capacity, description, price, warranty, image_name } = props;
+  const { model, capacity, description, price, warranty, images } = props;
 
   return (
     <section>
@@ -21,7 +24,7 @@ const ProductIntro = (props) => {
           <Grid xs={12} md={6}>
             <Paper variant="outlined" square>
               <Image
-                src={`/images/${image_name}`}
+                src={`/images/${images[0]}`}
                 width={600}
                 height={600}
                 alt={`${model}ah battery for ips/ups/inverter`}

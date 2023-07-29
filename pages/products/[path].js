@@ -1,5 +1,5 @@
 // Mongodb connection
-import { Box } from "@mui/material";
+import Box from "@mui/material/Box";
 import clientPromise from "../../lib/mongodb";
 import Head from "next/head";
 import ProductIntro from "../../components/singleProductPage/Product_Intro";
@@ -23,6 +23,7 @@ export default function SingleProduct({ product }) {
     width,
     height,
     image_name,
+    images,
   } = product;
 
   console.log(product);
@@ -44,6 +45,7 @@ export default function SingleProduct({ product }) {
             price={price}
             warranty={warranty}
             image_name={image_name}
+            images={images}
           />
           <SectionTwo
             model={model}
