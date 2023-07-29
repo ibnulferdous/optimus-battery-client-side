@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import clientPromise from "../lib/mongodb"; // Mongodb
 import Head from "next/head";
 import Typography from "@mui/material/Typography";
+import Hero from "../components/HomePage/Hero";
 
 export default function Home({ products }) {
   return (
@@ -15,7 +16,8 @@ export default function Home({ products }) {
       </Head>
 
       <main>
-        <Box sx={{ marginBlock: { xs: "75px", md: "100px" } }}>
+        <Box sx={{ mb: { xs: "75px", md: "100px" } }}>
+          <Hero />
           <AllProductsSection products={products} />
         </Box>
       </main>

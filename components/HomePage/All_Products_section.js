@@ -11,7 +11,7 @@ import Typography from "@mui/material/Typography";
 export default function AllProductsSection({ products }) {
   console.log(products);
   return (
-    <>
+    <section id="all-products">
       <Container sx={{ marginBottom: { xs: "50px", md: "75px" } }} fixed>
         <Typography
           variant="h4"
@@ -37,7 +37,7 @@ export default function AllProductsSection({ products }) {
                       src={`/images/${product.images[0]}`}
                       width={400}
                       height={400}
-                      alt={`${product.model}ah battery for ips/ups/inverter`}
+                      alt={`${product.model} battery for ips/ups/inverter`}
                       priority="true"
                       quality={100}
                       style={{
@@ -55,7 +55,7 @@ export default function AllProductsSection({ products }) {
                         fontWeight: "700",
                       }}
                     >
-                      {product.model}Ah
+                      {product.model}
                     </Typography>
 
                     <Typography variant="subtitle1" component="h5">
@@ -63,13 +63,10 @@ export default function AllProductsSection({ products }) {
                     </Typography>
 
                     <Button
-                      variant="text"
+                      variant="outlined"
                       sx={{
                         width: "100%",
                         mt: 2,
-                        "&:hover": {
-                          textDecoration: "underline",
-                        },
                       }}
                       endIcon={<KeyboardArrowRightIcon />}
                     >
@@ -82,6 +79,6 @@ export default function AllProductsSection({ products }) {
           ))}
         </Grid>
       </Container>
-    </>
+    </section>
   );
 }

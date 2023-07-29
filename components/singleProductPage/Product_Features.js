@@ -9,7 +9,7 @@ import Typography from "@mui/material/Typography";
 
 const featuresText = [
   "High-pressure casted spine grid with improved corrosion resistance capability",
-  "Rugged Construction of Tubular Positive plates ensures longer life & endurance",
+  "The durable construction of tubular positive plates guarantees extended longevity and resilience",
   "Most suitable and reliable in deep cyclic applications and higher power shortage area",
   "Long Lasting Battery Life for an unlimited flow of energy",
   "High charge acceptance for better backup",

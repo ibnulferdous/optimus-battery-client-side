@@ -31,14 +31,6 @@ const navItems = [
     text: "Products",
     link: "/#all-products",
   },
-  {
-    text: "100Ah",
-    link: "/products/optimus-100ah",
-  },
-  {
-    text: "130Ah",
-    link: "/products/optimus-130ah",
-  },
 ];
 
 // Function to implement hid on scroll
@@ -81,7 +73,7 @@ export default function HeaderNav(props) {
       <HideOnScroll {...props}>
         {/* Header navigation starts */}
 
-        <AppBar>
+        <AppBar sx={{ boxShadow: 0, borderBottom: "1px solid #fff" }}>
           <Container maxWidth="lg">
             <Toolbar
               disableGutters

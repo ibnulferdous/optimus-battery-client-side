@@ -32,7 +32,7 @@ export default function SingleProduct({ product }) {
     <>
       {/* Head part for meta data */}
       <Head>
-        <title>{`${model}Ah- IPS/UPS/Inverter battery`}</title>
+        <title>{`${model}- IPS/UPS/Inverter battery`}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
