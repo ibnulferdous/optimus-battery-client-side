@@ -1,18 +1,21 @@
-import { Box, Container, Paper, Typography } from "@mui/material";
+import Avatar from "@mui/material/Avatar";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
 import Grid from "@mui/material/Unstable_Grid2";
+import Image from "next/image";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
-import Avatar from "@mui/material/Avatar";
-import Image from "next/image";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
 
 // Material Icon
 import SafetyCheckIcon from "@mui/icons-material/SafetyCheck";
 import BatteryChargingFullIcon from "@mui/icons-material/BatteryChargingFull";
 
 const ProductIntro = (props) => {
-  const { model, capacity, description, price, warranty, image_name } = props;
+  const { model, capacity, description, price, warranty, images } = props;
 
   return (
     <section>
@@ -21,7 +24,7 @@ const ProductIntro = (props) => {
           <Grid xs={12} md={6}>
             <Paper variant="outlined" square>
               <Image
-                src={`/images/${image_name}`}
+                src={`/images/${images[0]}`}
                 width={600}
                 height={600}
                 alt={`${model}ah battery for ips/ups/inverter`}
@@ -47,30 +50,26 @@ const ProductIntro = (props) => {
             <Typography
               variant="h6"
               component="h2"
+              color="primary.main"
               sx={{
                 marginBottom: "35px",
                 fontWeight: "700",
-                color: "#2962ff",
               }}
             >
               Price: ৳{price}
             </Typography>
 
-            <Typography variant="body1" gutterBottom sx={{ lineHeight: "1.8" }}>
+            <Typography variant="body2" gutterBottom sx={{ lineHeight: "1.8" }}>
               {description}
             </Typography>
 
             <Box>
-              <Grid container spacing={2}>
+              <Grid container spacing={{ xs: 0, sm: 1, md: 2 }}>
                 <Grid xs={6}>
-                  <List
-                    sx={{
-                      width: "100%",
-                    }}
-                  >
-                    <ListItem>
+                  <List dense>
+                    <ListItem disableGutters>
                       <ListItemAvatar>
-                        <Avatar sx={{ bgcolor: "#2962ff" }}>
+                        <Avatar sx={{ bgcolor: "primary.main" }}>
                           <BatteryChargingFullIcon />
                         </Avatar>
                       </ListItemAvatar>
@@ -83,14 +82,10 @@ const ProductIntro = (props) => {
                 </Grid>
 
                 <Grid xs={6}>
-                  <List
-                    sx={{
-                      width: "100%",
-                    }}
-                  >
-                    <ListItem>
+                  <List dense>
+                    <ListItem disableGutters>
                       <ListItemAvatar>
-                        <Avatar sx={{ bgcolor: "#2962ff" }}>
+                        <Avatar sx={{ bgcolor: "primary.main" }}>
                           <SafetyCheckIcon />
                         </Avatar>
                       </ListItemAvatar>

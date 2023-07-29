@@ -103,11 +103,10 @@ export default function HeaderNav(props) {
                   <Link key={index} href={item.link}>
                     <Button
                       sx={{
+                        fontWeight: pathname == item.link ? 400 : 300,
                         color: pathname == item.link ? "#fff" : "#f0f0f0df",
                         paddingInline: "20px",
-                        letterSpacing: "1.5px",
-                        textDecoration:
-                          pathname == item.link ? "underline" : "none",
+                        letterSpacing: "1.25px",
                       }}
                     >
                       {item.text}
