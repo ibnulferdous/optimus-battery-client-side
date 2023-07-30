@@ -9,8 +9,13 @@ import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrow
 import Link from "next/link";
 import Typography from "@mui/material/Typography";
 
-// CSS
+// CSS- import
 import styles from "../../styles/Hero.module.css";
+
+// Images- import
+import homeImage from "../../public/images/optimus-home.jpg";
+import officeImage from "../../public/images/optimus-office.jpg";
+import libraryImage from "../../public/images/optimus-library.jpg";
 
 export default function Hero() {
   return (
@@ -46,7 +51,7 @@ export default function Hero() {
               UPS, or inverter.
             </Typography>
           </Grid>
-          <Grid xs={12} md={8} sx={{ minHeight: { xs: "30vh", md: "75vh" } }}>
+          <Grid xs={12} md={8}>
             <Box
               sx={{ bgcolor: "primary.main", height: "100%" }}
               className={styles.image_container}
@@ -55,34 +60,52 @@ export default function Hero() {
               <Box>
                 <Grid container spacing={{ xs: 2, md: 2, lg: 2 }}>
                   <Grid xs={8} md={8}>
-                    <Image
-                      src="/images/optimus-home.jpg"
-                      width={800}
-                      height={450}
-                      alt={`battery for ips/ups/inverter`}
-                      priority="true"
-                      style={{
-                        maxWidth: "100%",
-                        height: "auto",
+                    <Box
+                      sx={{
+                        width: "100%",
+                        height: "100%",
+                        position: "relative",
+                        minHeight: { xs: "25vh", md: "40vh" },
                       }}
-                    />
+                    >
+                      <Image
+                        src={homeImage}
+                        placeholder="blur"
+                        alt="Optimus powered home"
+                        priority="true"
+                        fill
+                        sizes="(max-width: 768px) 75vw, (max-width: 1200px) 50vw, 40vw"
+                        style={{
+                          objectFit: "cover",
+                        }}
+                      />
+                    </Box>
                   </Grid>
-                  <Grid xs={4} md={4} sx={{ p: { xs: 2, md: 6 } }}>
-                    <Image
-                      src="/images/optimus-library.jpg"
-                      width={300}
-                      height={400}
-                      alt={`battery for ips/ups/inverter`}
-                      priority="true"
-                      style={{
-                        maxWidth: "100%",
-                        height: "auto",
+                  <Grid xs={4} md={4}>
+                    <Box
+                      sx={{
+                        width: "100%",
+                        height: "100%",
+                        position: "relative",
                       }}
-                    />
+                    >
+                      <Image
+                        src={libraryImage}
+                        placeholder="blur"
+                        alt="Optimus battery powered library"
+                        priority="true"
+                        fill
+                        sizes="(max-width: 768px) 75vw, (max-width: 1200px) 50vw, 15vw"
+                        style={{
+                          objectFit: "cover",
+                        }}
+                      />
+                    </Box>
                   </Grid>
                 </Grid>
               </Box>
 
+              {/* Second Image row */}
               <Box>
                 <Grid
                   container
@@ -117,19 +140,27 @@ export default function Hero() {
                       </IconButton>
                     </Link>
                   </Grid>
-                  <Grid xs={9} md={8} sx={{ pb: "1px" }}>
-                    <Image
-                      src="/images/optimus-office.jpg"
-                      alt={`battery for ips/ups/inverter`}
-                      priority="true"
-                      width={600}
-                      height={400}
-                      style={{
-                        maxWidth: "100%",
-                        height: "auto",
-                        objectFit: "contain",
+                  <Grid xs={9} md={8}>
+                    <Box
+                      sx={{
+                        width: "100%",
+                        height: "100%",
+                        position: "relative",
+                        minHeight: { xs: "25vh", md: "40vh" },
                       }}
-                    />
+                    >
+                      <Image
+                        src={officeImage}
+                        alt="Optimus battery powered office and workspace"
+                        placeholder="blur"
+                        priority="true"
+                        fill
+                        sizes="(max-width: 768px) 75vw, (max-width: 1200px) 60vw, 40vw"
+                        style={{
+                          objectFit: "cover",
+                        }}
+                      />
+                    </Box>
                   </Grid>
                 </Grid>
               </Box>
