@@ -14,7 +14,7 @@ const featuresText = [
   "Long Lasting Battery Life for an unlimited flow of energy",
   "High charge acceptance for better backup",
   "Least gas generation and low maintenance",
-  "Peace of mind with best-in-class warranty",
+  "Peace of mind with best-in-class guarantee",
   "Nature friendly",
 ];
 

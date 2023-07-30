@@ -2,7 +2,6 @@ import AllProductsSection from "../components/HomePage/All_Products_section";
 import Box from "@mui/material/Box";
 import clientPromise from "../lib/mongodb"; // Mongodb
 import Head from "next/head";
-import Typography from "@mui/material/Typography";
 import Hero from "../components/HomePage/Hero";
 
 export default function Home({ products }) {

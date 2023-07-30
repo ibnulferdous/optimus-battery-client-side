@@ -78,7 +78,7 @@ const ProductIntro = (props) => {
                         </Avatar>
                       </ListItemAvatar>
                       <ListItemText
-                        primary="Warranty"
+                        primary="Guarantee"
                         secondary={`${warranty}* Months`}
                       />
                     </ListItem>
