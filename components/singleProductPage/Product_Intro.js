@@ -23,18 +23,6 @@ const ProductIntro = (props) => {
       <Container sx={{ marginBottom: { xs: "50px", md: "75px" } }} fixed>
         <Grid container spacing={{ xs: 3, md: 8, lg: 12 }}>
           <Grid xs={12} md={6}>
-            {/* <Image
-                src={`/images/${images[0]}`}
-                placeholder="empty"
-                width={550}
-                height={550}
-                alt={`${model} battery for ips/ups/inverter`}
-                priority="true"
-                style={{
-                  maxWidth: "100%",
-                  height: "auto",
-                }}
-              /> */}
             <ProductImage images={images} model={model} />
           </Grid>
           <Grid xs={12} md={6}>

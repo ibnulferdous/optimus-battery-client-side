@@ -12,7 +12,10 @@ export default function AllProductsSection({ products }) {
   console.log(products);
   return (
     <section id="all-products">
-      <Container sx={{ marginBottom: { xs: "50px", md: "75px" } }} fixed>
+      <Container
+        sx={{ pt: { xs: "50px", md: "75px" }, mb: { xs: "50px", md: "75px" } }}
+        fixed
+      >
         <Typography
           variant="h4"
           component="h2"

@@ -20,7 +20,7 @@ import libraryImage from "../../public/images/optimus-library.jpg";
 export default function Hero() {
   return (
     <section>
-      <Container sx={{ marginBottom: { xs: "50px", md: "75px" } }} fixed>
+      <Container fixed>
         <Grid container spacing={{ xs: 3, md: 4, lg: 4 }}>
           <Grid
             xs={12}
@@ -72,7 +72,7 @@ export default function Hero() {
                         src={homeImage}
                         placeholder="blur"
                         alt="Optimus powered home"
-                        priority="true"
+                        priority={true}
                         fill
                         sizes="(max-width: 768px) 75vw, (max-width: 1200px) 50vw, 40vw"
                         style={{
@@ -93,7 +93,7 @@ export default function Hero() {
                         src={libraryImage}
                         placeholder="blur"
                         alt="Optimus battery powered library"
-                        priority="true"
+                        priority={true}
                         fill
                         sizes="(max-width: 768px) 75vw, (max-width: 1200px) 50vw, 15vw"
                         style={{
@@ -153,7 +153,7 @@ export default function Hero() {
                         src={officeImage}
                         alt="Optimus battery powered office and workspace"
                         placeholder="blur"
-                        priority="true"
+                        priority={true}
                         fill
                         sizes="(max-width: 768px) 75vw, (max-width: 1200px) 60vw, 40vw"
                         style={{
