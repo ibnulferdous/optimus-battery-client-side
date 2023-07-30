@@ -32,6 +32,14 @@ const navItems = [
     text: "Products",
     link: "/#all-products",
   },
+  {
+    text: "Condition of Use",
+    link: "/condition-of-use",
+  },
+  {
+    text: "Maintenance",
+    link: "/maintenance-tips",
+  },
 ];
 
 // Function to implement hid on scroll

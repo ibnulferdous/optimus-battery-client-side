@@ -1,4 +1,4 @@
-import { Box, Container } from "@mui/material";
+import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
 import Table from "@mui/material/Table";
@@ -59,7 +59,7 @@ const ProductSpecifications = (props) => {
       value: `${country_of_origin}`,
     },
     {
-      text: "Warranty",
+      text: "Guarantee",
       value: `${warranty}* Months (T&C Apply)`,
     },
   ];
