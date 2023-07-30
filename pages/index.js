@@ -20,8 +20,6 @@ export default function Home({ products }) {
           <AllProductsSection products={products} />
         </Box>
       </main>
-
-      <footer>Developed by Tazrian & Ibnul</footer>
     </div>
   );
 }
