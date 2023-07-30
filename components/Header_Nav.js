@@ -21,6 +21,7 @@ import { usePathname } from "next/navigation";
 // Next Image
 import Image from "next/image";
 import Link from "next/link";
+import optimusLogo from "../public/images/optimus-battery-logo-light-1.png";
 
 const navItems = [
   {
@@ -82,14 +83,12 @@ export default function HeaderNav(props) {
               {/* Optimus Logo */}
               <Link href="/">
                 <Image
-                  src="/images/optimus-battery-logo-light-1.png"
+                  src={optimusLogo}
+                  placeholder="blur"
                   width={150}
                   height={25}
                   alt="Optimus battery logo"
-                  style={{
-                    maxWidth: "100%",
-                    height: "auto",
-                  }}
+                  priority
                 />
               </Link>
 

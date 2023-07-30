@@ -15,7 +15,7 @@ export default function AllProductsSection({ products }) {
       <Container sx={{ marginBottom: { xs: "50px", md: "75px" } }} fixed>
         <Typography
           variant="h4"
-          component="h3"
+          component="h2"
           sx={{ fontWeight: "700", marginBottom: "40px" }}
         >
           All Products
@@ -35,8 +35,8 @@ export default function AllProductsSection({ products }) {
                   <Box sx={{ px: 6 }}>
                     <Image
                       src={`/images/${product.images[0]}`}
-                      width={400}
-                      height={400}
+                      width={250}
+                      height={250}
                       alt={`${product.model} battery for ips/ups/inverter`}
                       style={{
                         maxWidth: "100%",
@@ -47,7 +47,7 @@ export default function AllProductsSection({ products }) {
                   <Box sx={{ p: 4 }}>
                     <Typography
                       variant="subtitle1"
-                      component="h4"
+                      component="h3"
                       color="primary.main"
                       sx={{
                         fontWeight: "700",
@@ -56,7 +56,7 @@ export default function AllProductsSection({ products }) {
                       {product.model}
                     </Typography>
 
-                    <Typography variant="subtitle1" component="h5">
+                    <Typography variant="subtitle1" component="h4">
                       Price: ৳{product.price}
                     </Typography>
 
