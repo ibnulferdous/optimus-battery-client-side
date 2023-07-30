@@ -65,7 +65,7 @@ export default function Hero() {
                         width: "100%",
                         height: "100%",
                         position: "relative",
-                        minHeight: { xs: "25vh", md: "40vh" },
+                        minHeight: { xs: "25vh", md: "37vh" },
                       }}
                     >
                       <Image
@@ -146,7 +146,7 @@ export default function Hero() {
                         width: "100%",
                         height: "100%",
                         position: "relative",
-                        minHeight: { xs: "25vh", md: "40vh" },
+                        minHeight: { xs: "25vh", md: "37vh" },
                       }}
                     >
                       <Image

@@ -13,6 +13,7 @@ import Typography from "@mui/material/Typography";
 // Material Icon
 import SafetyCheckIcon from "@mui/icons-material/SafetyCheck";
 import BatteryChargingFullIcon from "@mui/icons-material/BatteryChargingFull";
+import ProductImage from "./Product_Image";
 
 const ProductIntro = (props) => {
   const { model, capacity, description, price, warranty, images } = props;
@@ -22,20 +23,19 @@ const ProductIntro = (props) => {
       <Container sx={{ marginBottom: { xs: "50px", md: "75px" } }} fixed>
         <Grid container spacing={{ xs: 3, md: 8, lg: 12 }}>
           <Grid xs={12} md={6}>
-            <Paper variant="outlined" square>
-              <Image
+            {/* <Image
                 src={`/images/${images[0]}`}
-                width={600}
-                height={600}
+                placeholder="empty"
+                width={550}
+                height={550}
                 alt={`${model} battery for ips/ups/inverter`}
                 priority="true"
-                quality={100}
                 style={{
                   maxWidth: "100%",
                   height: "auto",
                 }}
-              />
-            </Paper>
+              /> */}
+            <ProductImage images={images} model={model} />
           </Grid>
           <Grid xs={12} md={6}>
             <Typography
