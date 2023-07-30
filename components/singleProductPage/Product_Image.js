@@ -17,7 +17,7 @@ const ProductImage = ({ images, model }) => {
           placeholder="empty"
           width={550}
           height={550}
-          priority="true"
+          priority={true}
           quality={100}
           style={{
             maxWidth: "100%",
@@ -28,10 +28,24 @@ const ProductImage = ({ images, model }) => {
       <Box sx={{ display: "flex", justifyContent: "center", pt: 2 }}>
         <Stack direction="row" spacing={2}>
           {images.map((image) => (
-            <Paper variant="outlined" square key={image}>
+            <Paper
+              variant="outlined"
+              square
+              key={image}
+              sx={{
+                "&:hover": {
+                  borderColor: "primary.main",
+                },
+              }}
+            >
               <IconButton
                 aria-label="Image button"
-                sx={{ borderRadius: 0 }}
+                sx={{
+                  borderRadius: 0,
+                  "&:hover": {
+                    backgroundColor: "#fff",
+                  },
+                }}
                 onClick={() => setImageUrl(image)}
               >
                 <Image
@@ -40,7 +54,7 @@ const ProductImage = ({ images, model }) => {
                   placeholder="empty"
                   width={50}
                   height={50}
-                  priority="true"
+                  priority={true}
                   style={{
                     maxWidth: "100%",
                     height: "auto",

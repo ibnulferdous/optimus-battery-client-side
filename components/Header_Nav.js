@@ -88,7 +88,7 @@ export default function HeaderNav(props) {
                   width={150}
                   height={25}
                   alt="Optimus battery logo"
-                  priority
+                  priority={true}
                 />
               </Link>
 
