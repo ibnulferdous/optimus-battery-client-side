@@ -3,10 +3,14 @@ import IconButton from "@mui/material/IconButton";
 import Image from "next/image";
 import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const ProductImage = ({ images, model }) => {
   const [imageUrl, setImageUrl] = useState(images[0]);
+
+  useEffect(() => {
+    setImageUrl(images[0]);
+  }, [images]);
 
   return (
     <>
