@@ -13,12 +13,13 @@ import {
 } from "@mui/material";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import withAuth from "../../components/withAuth";
-import UserCard from "../../components/UserCard";
-import ProductsTable from "../../components/ProductsTable";
 import { auth } from "../../auth/firebase/firebase.config";
+import ProductsTable from "../../components/ProductsTable";
+import UserCard from "../../components/UserCard";
+import withAuth from "../../components/withAuth";
+import clientPromise from "../../lib/mongodb"; // Mongodb
 
-const AdminDashboard = ({ user }) => {
+const AdminDashboard = ({ user, products }) => {
   const router = useRouter();
   const [activeTab, setActiveTab] = useState(0);
 
@@ -93,7 +94,7 @@ const AdminDashboard = ({ user }) => {
             {activeTab === 1 && (
               <Card>
                 <CardContent>
-                  <ProductsTable />
+                  <ProductsTable products={products} />
                 </CardContent>
               </Card>
             )}
@@ -113,3 +114,25 @@ const AdminDashboard = ({ user }) => {
 };
 
 export default withAuth(AdminDashboard);
+
+export async function getServerSideProps() {
+  try {
+    const client = await clientPromise;
+    const db = client.db("optimus_battery");
+
+    const products = await db.collection("products").find().toArray();
+
+    return {
+      props: {
+        products: JSON.parse(JSON.stringify(products)),
+      },
+    };
+  } catch (e) {
+    console.error(e);
+    return {
+      props: {
+        products: [],
+      },
+    };
+  }
+}

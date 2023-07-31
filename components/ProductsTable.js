@@ -4,13 +4,7 @@ import { AgGridReact } from "ag-grid-react";
 import { useEffect, useRef } from "react";
 import ActionsFieldRenderer from "./ActionsFieldRenderer";
 
-const ProductsTable = () => {
-  const products = [
-    { index: 1, model: "Optimus 100AH", _id: 11, price: 100 },
-    { index: 2, model: "Optimus 130AH", _id: 22, price: 200 },
-    { index: 3, model: "Optimus 165AH", _id: 33, price: 300 },
-  ];
-
+const ProductsTable = ({ products }) => {
   const gridApiRef = useRef(null);
 
   const actionsCellRenderer = (props) => {
@@ -21,8 +15,10 @@ const ProductsTable = () => {
   const columnDefs = [
     {
       headerName: "SL.",
-      field: "index",
+      field: "",
       width: 60,
+      valueGetter: (params) => params.node.rowIndex + 1,
+      suppressSizeToFit: true,
     },
     {
       headerName: "Model Name",
