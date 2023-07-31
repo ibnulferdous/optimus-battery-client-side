@@ -1,80 +1,41 @@
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
+import AllProductsSection from "../components/HomePage/All_Products_section";
+import Box from "@mui/material/Box";
+import clientPromise from "../lib/mongodb"; // Mongodb
+import Head from "next/head";
+import Hero from "../components/HomePage/Hero";
 
-export default function Home() {
+export default function Home({ products }) {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
-        <title>Optimus Battery- Reliable power source for IPS/UPS/Inverter</title>
+        <title>
+          Optimus Battery- Reliable power source for IPS/UPS/Inverter
+        </title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <h1 className={styles.title}>
-          Welcome to Optimus Battery
-        </h1>
-
-        <p className={styles.description}>
-          New website comming soon! 
-        </p>
-
-        
+        <Box sx={{ mb: { xs: "75px", md: "100px" } }}>
+          <Hero />
+          <AllProductsSection products={products} />
+        </Box>
       </main>
-
-      <footer>
-        Developed by Tazrian & Ibnul
-      </footer>
-
-      <style jsx>{`
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        footer img {
-          margin-left: 0.5rem;
-        }
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          text-decoration: none;
-          color: inherit;
-        }
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
     </div>
-  )
+  );
+}
+
+export async function getStaticProps() {
+  try {
+    const client = await clientPromise;
+    const db = client.db("optimus_battery");
+
+    const products = await db.collection("products").find().toArray();
+
+    return {
+      props: { products: JSON.parse(JSON.stringify(products)) },
+      revalidate: 1,
+    };
+  } catch (e) {
+    console.error(e);
+  }
 }
