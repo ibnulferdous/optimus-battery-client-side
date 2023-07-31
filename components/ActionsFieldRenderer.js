@@ -1,4 +1,4 @@
-import DeleteIcon from "@mui/icons-material/Delete";
+// import DeleteIcon from "@mui/icons-material/Delete";
 import EditNoteIcon from "@mui/icons-material/EditNote";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import {
@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 
-const ActionsFieldRenderer = ({ id, model, price }) => {
+const ActionsFieldRenderer = ({ _id, model, price, updateProduct }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [openDialog, setOpenDialog] = useState(false);
   const [updatedPrice, setUpdatedPrice] = useState(price);
@@ -32,14 +32,13 @@ const ActionsFieldRenderer = ({ id, model, price }) => {
     handleMenuClose();
   };
 
-  const handleDelete = (productId) => {
-    console.log(`Delete product with ID: ${productId}`);
-    handleMenuClose();
-  };
+  // const handleDelete = (productId) => {
+  //   console.log(`Delete product with ID: ${productId}`);
+  //   handleMenuClose();
+  // };
 
   const handleSubmit = () => {
-    console.log("Updated Price:", updatedPrice);
-    // implement PATCH method to update the product price
+    updateProduct(_id, updatedPrice);
     setOpenDialog(false);
   };
 
@@ -53,14 +52,14 @@ const ActionsFieldRenderer = ({ id, model, price }) => {
         open={Boolean(anchorEl)}
         onClose={handleMenuClose}
       >
-        <MenuItem onClick={() => handleEdit(id)}>
+        <MenuItem onClick={() => handleEdit()}>
           <EditNoteIcon style={{ marginRight: "8px" }} color="primary" />
           Edit
         </MenuItem>
-        <MenuItem onClick={() => handleDelete(id)}>
+        {/* <MenuItem onClick={() => handleDelete(_id)}>
           <DeleteIcon style={{ marginRight: "8px" }} color="error" />
           Delete
-        </MenuItem>
+        </MenuItem> */}
       </Menu>
 
       <Dialog open={openDialog} onClose={() => setOpenDialog(false)}>

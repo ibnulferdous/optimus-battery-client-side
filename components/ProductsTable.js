@@ -4,12 +4,19 @@ import { AgGridReact } from "ag-grid-react";
 import { useEffect, useRef } from "react";
 import ActionsFieldRenderer from "./ActionsFieldRenderer";
 
-const ProductsTable = ({ products }) => {
+const ProductsTable = ({ products, updateProduct }) => {
   const gridApiRef = useRef(null);
 
   const actionsCellRenderer = (props) => {
     const { _id, model, price } = props.data;
-    return <ActionsFieldRenderer id={_id} model={model} price={price} />;
+    return (
+      <ActionsFieldRenderer
+        _id={_id}
+        model={model}
+        price={price}
+        updateProduct={updateProduct}
+      />
+    );
   };
 
   const columnDefs = [
@@ -24,12 +31,13 @@ const ProductsTable = ({ products }) => {
       headerName: "Model Name",
       field: "model",
       filter: true,
-      flex: 1,
+      width: 220,
     },
     {
       headerName: "Price",
       field: "price",
       filter: true,
+      minWidth: 100,
       flex: 1,
     },
     {
