@@ -1,7 +1,10 @@
 // Mongodb connection
+import Box from "@mui/material/Box";
 import clientPromise from "../../lib/mongodb";
 import Head from "next/head";
-import ProductIntro from "../../components/singleProductPage/ProductIntro";
+import ProductIntro from "../../components/singleProductPage/Product_Intro";
+import ProductSpecifications from "../../components/singleProductPage/Product_Specifications";
+import SectionTwo from "../../components/singleProductPage/Section_two";
 
 export default function SingleProduct({ product }) {
   const {
@@ -9,9 +12,6 @@ export default function SingleProduct({ product }) {
     capacity,
     country_of_origin,
     description,
-    width,
-    height,
-    length,
     model,
     path,
     price,
@@ -19,24 +19,48 @@ export default function SingleProduct({ product }) {
     voltage,
     warranty,
     weight,
+    length,
+    width,
+    height,
+    image_name,
+    images,
   } = product;
 
   return (
     <>
       {/* Head part for meta data */}
       <Head>
-        <title>{`${model}Ah- IPS/UPS/Inverter battery`}</title>
+        <title>{`${model}- IPS/UPS/Inverter battery`}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <ProductIntro
-          model={model}
-          capacity={capacity}
-          description={description}
-          price={price}
-          warranty={warranty}
-        />
+        <Box sx={{ marginBlock: { xs: "75px", md: "100px" } }}>
+          <ProductIntro
+            model={model}
+            capacity={capacity}
+            description={description}
+            price={price}
+            warranty={warranty}
+            image_name={image_name}
+            images={images}
+          />
+          <SectionTwo
+            model={model}
+            capacity={capacity}
+            description={description}
+            price={price}
+            warranty={warranty}
+            type={type}
+            voltage={voltage}
+            application={application}
+            country_of_origin={country_of_origin}
+            weight={weight}
+            length={length}
+            width={width}
+            height={height}
+          />
+        </Box>
       </main>
     </>
   );

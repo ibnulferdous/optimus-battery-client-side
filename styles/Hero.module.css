@@ -1,0 +1,4 @@
+.image_container {
+  display: grid;
+  gap: 16px;
+}
