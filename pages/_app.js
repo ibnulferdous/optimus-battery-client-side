@@ -7,13 +7,17 @@ import { CacheProvider } from "@emotion/react";
 import theme from "../config/theme";
 import createEmotionCache from "../config/createEmotionCache";
 import Layout from "../components/Layout";
-
+import { useRouter } from "next/router";
 // Client-side cache shared for the whole session
 // of the user in the browser.
 
 const clientSideEmotionCache = createEmotionCache();
 
 export default function MyApp(props) {
+  const router = useRouter();
+  const excludedRoutes = ["/admin-login", "/admin-dashboard"];
+  const isExcludedRoute = excludedRoutes.includes(router.pathname);
+
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
   return (
@@ -26,9 +30,15 @@ export default function MyApp(props) {
                 consistent, and simple baseline to
                 build upon. */}
         <CssBaseline />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <>
+          {isExcludedRoute ? (
+            <Component {...pageProps} />
+          ) : (
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          )}
+        </>
       </ThemeProvider>
     </CacheProvider>
   );
