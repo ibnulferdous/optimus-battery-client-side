@@ -175,7 +175,7 @@ export default function Footer() {
         <Box sx={{ borderTop: "1px solid rgba(0, 0, 0, 0.12)" }}>
           <Container fixed sx={{ my: 3 }}>
             <Grid container spacing={{ xs: 3, md: 4 }}>
-              <Grid xs={12} md={6}>
+              <Grid xs={12} sm={6}>
                 <Typography
                   variant="body2"
                   sx={{ textAlign: { xs: "center", sm: "left" } }}
@@ -184,7 +184,7 @@ export default function Footer() {
                 </Typography>
               </Grid>
 
-              <Grid xs={12} md={6}>
+              <Grid xs={12} sm={6}>
                 <Typography
                   variant="body2"
                   sx={{ textAlign: { xs: "center", sm: "right" } }}

@@ -32,7 +32,10 @@ export default function AllProductsSection({ products }) {
               >
                 <Paper
                   variant="outlined"
-                  sx={{ "&:hover": { borderColor: "primary.main" } }}
+                  sx={{
+                    minHeight: "100%",
+                    "&:hover": { borderColor: "primary.main" },
+                  }}
                 >
                   <Box sx={{ px: 6 }}>
                     <Image
