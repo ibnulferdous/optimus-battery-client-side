@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Warning } from "@mui/icons-material";
+import WarningIcon from "@mui/icons-material/Warning";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -31,7 +31,7 @@ const Unauthorized = () => {
                 justifyContent: "center",
               }}
             >
-              <Warning sx={{ fontSize: 60 }} color="error" />
+              <WarningIcon sx={{ fontSize: 60 }} color="error" />
             </div>
             <Typography
               variant="h5"

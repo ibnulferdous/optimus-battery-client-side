@@ -1,9 +1,7 @@
-// Mongodb connection
 import Box from "@mui/material/Box";
-import clientPromise from "../../lib/mongodb";
+import clientPromise from "../../lib/mongodb"; // Mongodb connection
 import Head from "next/head";
 import ProductIntro from "../../components/singleProductPage/Product_Intro";
-import ProductSpecifications from "../../components/singleProductPage/Product_Specifications";
 import SectionTwo from "../../components/singleProductPage/Section_two";
 
 export default function SingleProduct({ product }) {
@@ -33,6 +31,20 @@ export default function SingleProduct({ product }) {
         <title>{`${model}- IPS/UPS/Inverter battery`}</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="robots" content="all" />
+        <meta
+          name="description"
+          key="desc"
+          content={`${model} is a reliable choice for IPS, UPS and Inverters with the price of ৳${price}. It provides long backup and requires low maintenance...`}
+        />
+        <meta
+          property="og:title"
+          content={`${model}- IPS/UPS/Inverter battery`}
+        />
+        <meta
+          property="og:description"
+          content={`${model} is a reliable choice for IPS, UPS and Inverters with the price of ৳${price}. It provides long backup and requires low maintenance...`}
+        />
+        <meta property="og:image" content={image_name} />
       </Head>
 
       <main>

@@ -1,17 +1,15 @@
+import AppBar from "@mui/material/AppBar";
+import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import Tab from "@mui/material/Tab";
+import Tabs from "@mui/material/Tabs";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import Head from "next/head";
-import {
-  AppBar,
-  Button,
-  Card,
-  CardContent,
-  Container,
-  Grid,
-  Tab,
-  Tabs,
-  Toolbar,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { auth } from "../../auth/firebase/firebase.config";
