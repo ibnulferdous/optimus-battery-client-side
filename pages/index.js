@@ -29,6 +29,7 @@ export default function Home({ products }) {
           property="og:image"
           content="https://i.ibb.co/cTp84SB/og-for-home.jpg"
         />
+        <meta name="robots" content="all" />
       </Head>
 
       <main>

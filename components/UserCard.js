@@ -1,5 +1,8 @@
 import React from "react";
-import { Avatar, Card, CardContent, Typography } from "@mui/material";
+import Avatar from "@mui/material/Avatar";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
 
 const UserCard = ({ isMobile, userData }) => {
   return (
