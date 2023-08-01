@@ -12,7 +12,19 @@ export default function Home({ products }) {
           Optimus Battery- Reliable power source for IPS/UPS/Inverter
         </title>
         <link rel="icon" href="/favicon.ico" />
-        <meta name="robots" content="all" />
+        <meta
+          name="description"
+          key="desc"
+          content="Optimus Battery makes reliable batteries for IPS, UPS and Inverters with capacity ranges from 100, 130, 165, 200 and 230..."
+        />
+        <meta
+          property="og:title"
+          content="Optimus Battery- Reliable power source for IPS/UPS/Inverter"
+        />
+        <meta
+          property="og:description"
+          content="Optimus Battery makes reliable batteries for IPS, UPS and Inverters with capacity ranges from 100, 130, 165, 200 and 230..."
+        />
       </Head>
 
       <main>
