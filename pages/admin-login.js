@@ -22,49 +22,61 @@ const LoginPage = () => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-      }}
-    >
-      <form
-        onSubmit={handleLogin}
+    <>
+      <Head>
+        <title>Optimus Battery- Admin Login</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="robots" content="noindex,nofollow" />
+      </Head>
+      <div
         style={{
           display: "flex",
-          flexDirection: "column",
-          gap: "20px",
-          padding: "50px 40px",
-          maxWidth: "400px",
-          width: "100%",
-          backgroundColor: "#f2f6fb",
-          borderRadius: "8px",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
         }}
       >
-        <Typography variant="h4" align="center">
-          Admin Login
-        </Typography>
-        <TextField
-          type="email"
-          label="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          variant="outlined"
-        />
-        <TextField
-          type="password"
-          label="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          variant="outlined"
-        />
-        <Button type="submit" variant="contained" size="large" color="primary">
-          Log In
-        </Button>
-      </form>
-    </div>
+        <form
+          onSubmit={handleLogin}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "20px",
+            padding: "50px 40px",
+            maxWidth: "400px",
+            width: "100%",
+            backgroundColor: "#f2f6fb",
+            borderRadius: "8px",
+          }}
+        >
+          <Typography variant="h4" align="center">
+            Admin Login
+          </Typography>
+          <TextField
+            type="email"
+            label="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            variant="outlined"
+          />
+          <TextField
+            type="password"
+            label="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            variant="outlined"
+          />
+          <Button
+            type="submit"
+            variant="contained"
+            size="large"
+            color="primary"
+          >
+            Log In
+          </Button>
+        </form>
+      </div>
+    </>
   );
 };
 
