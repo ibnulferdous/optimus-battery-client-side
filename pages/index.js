@@ -12,6 +12,7 @@ export default function Home({ products }) {
           Optimus Battery- Reliable power source for IPS/UPS/Inverter
         </title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="robots" content="all" />
       </Head>
 
       <main>
