@@ -1,9 +1,11 @@
+import Button from "@mui/material/Button";
 import Head from "next/head";
+import { app } from "../auth/firebase/firebase.config";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { Button, TextField, Typography } from "@mui/material";
-import { app } from "../auth/firebase/firebase.config";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
 
 const LoginPage = () => {
   const router = useRouter();

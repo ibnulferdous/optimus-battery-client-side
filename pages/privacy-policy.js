@@ -1,7 +1,6 @@
 import Container from "@mui/material/Container";
-import Grid from "@mui/material/Unstable_Grid2";
 import Head from "next/head";
-import Typography from "@mui/material/Typography";
+import Link from "next/link";
 
 export default function TermsAndConditions() {
   return (
@@ -114,13 +113,9 @@ export default function TermsAndConditions() {
               <p>
                 <strong>Website</strong> refers to Optimus Battery and Power
                 Solutions, accessible from{" "}
-                <a
-                  href="https://www.optimusbattery.com"
-                  rel="external nofollow noopener"
-                  target="_blank"
-                >
-                  https://www.optimusbattery.com
-                </a>
+                <Link href="https://optimusbattery.com">
+                  https://optimusbattery.com
+                </Link>
               </p>
             </li>
             <li>

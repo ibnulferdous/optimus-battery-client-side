@@ -9,6 +9,22 @@ export default function ConditionOfUse() {
         <title>Optimus Battery- Condition of use</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="robots" content="all" />
+        <meta
+          name="description"
+          key="desc"
+          content="Optimus Battery provides a guarantee for the IPS, UPS, and Inverter
+          batteries sold to the customers. The guarantee is subject to the conditions."
+        />
+        <meta property="og:title" content="Optimus Battery- Condition of use" />
+        <meta
+          property="og:description"
+          content="Optimus Battery provides a guarantee for the IPS, UPS, and Inverter
+          batteries sold to the customers. The guarantee is subject to the conditions."
+        />
+        <meta
+          property="og:image"
+          content="https://i.ibb.co/m5f1kvf/optimus-battery-social-media.png"
+        />
       </Head>
 
       <main>

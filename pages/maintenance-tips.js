@@ -9,6 +9,26 @@ export default function ConditionOfUse() {
         <title>Optimus Battery- Maintenance Tips</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="robots" content="all" />
+        <meta
+          name="description"
+          key="desc"
+          content="Optimus Battery takes pride in providing reliable batteries for IPS,
+          UPS, and inverters. Proper battery maintenance is essential to ensure optimal
+          performance, extend their lifespan, and maximize efficiency. In this
+          article, we will outline some essential tips on how to maintain
+          batteries effectively..."
+        />
+        <meta property="og:title" content="Optimus Battery- Maintenance Tips" />
+        <meta
+          property="og:description"
+          content="Optimus Battery takes pride in providing reliable batteries for IPS,
+          UPS, and inverters. Proper battery maintenance is essential to ensure optimal
+          performance, extend their lifespan, and maximize efficiency."
+        />
+        <meta
+          property="og:image"
+          content="https://i.ibb.co/m5f1kvf/optimus-battery-social-media.png"
+        />
       </Head>
 
       <main>

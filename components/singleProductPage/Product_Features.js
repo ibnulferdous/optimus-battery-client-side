@@ -2,7 +2,6 @@ import Box from "@mui/material/Box";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Typography from "@mui/material/Typography";
