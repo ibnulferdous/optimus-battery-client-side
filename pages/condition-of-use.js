@@ -8,6 +8,7 @@ export default function ConditionOfUse() {
       <Head>
         <title>Optimus Battery- Condition of use</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="robots" content="all" />
       </Head>
 
       <main>

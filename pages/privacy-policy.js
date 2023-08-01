@@ -9,6 +9,7 @@ export default function TermsAndConditions() {
       <Head>
         <title>Optimus Battery- Privacy Policy</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="robots" content="noindex,nofollow" />
       </Head>
 
       <main>

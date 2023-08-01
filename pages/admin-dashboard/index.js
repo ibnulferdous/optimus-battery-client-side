@@ -1,3 +1,4 @@
+import Head from "next/head";
 import {
   AppBar,
   Button,
@@ -70,59 +71,65 @@ const AdminDashboard = ({ user, products }) => {
   };
 
   return (
-    <div>
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Admin Dashboard
-          </Typography>
-          {isMobile && (
-            <Button color="error" variant="contained" onClick={handleSignOut}>
-              Log Out
-            </Button>
-          )}
-        </Toolbar>
-      </AppBar>
-      <Container maxWidth="lg" sx={{ marginTop: "20px" }}>
-        <Grid container spacing={3}>
-          <Grid item xs={isMobile ? 12 : 2}>
-            <Tabs
-              value={activeTab}
-              onChange={handleTabChange}
-              orientation={isMobile ? "horizontal" : "vertical"}
-              textColor="primary"
-              indicatorColor="primary"
-              variant={isMobile ? "scrollable" : "standard"}
-            >
-              <Tab label="All Products" />
-              {/* <Tab label="Add Product" /> */}
-              <Tab label="User Info" />
-            </Tabs>
-
-            {!isMobile && (
-              <Button
-                sx={{ marginTop: "16px", marginBottom: "16px" }}
-                color="error"
-                variant="outlined"
-                fullWidth
-                onClick={handleSignOut}
-              >
+    <>
+      <Head>
+        <title>Optimus Battery- Dashboard</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="robots" content="noindex,nofollow" />
+      </Head>
+      <div>
+        <AppBar position="static">
+          <Toolbar>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              Admin Dashboard
+            </Typography>
+            {isMobile && (
+              <Button color="error" variant="contained" onClick={handleSignOut}>
                 Log Out
               </Button>
             )}
-          </Grid>
-          <Grid item xs={isMobile ? 12 : 10}>
-            {activeTab === 0 && (
-              <Card>
-                <CardContent>
-                  <ProductsTable
-                    products={products}
-                    updateProduct={updateProduct}
-                  />
-                </CardContent>
-              </Card>
-            )}
-            {/* {activeTab === 1 && (
+          </Toolbar>
+        </AppBar>
+        <Container maxWidth="lg" sx={{ marginTop: "20px" }}>
+          <Grid container spacing={3}>
+            <Grid item xs={isMobile ? 12 : 2}>
+              <Tabs
+                value={activeTab}
+                onChange={handleTabChange}
+                orientation={isMobile ? "horizontal" : "vertical"}
+                textColor="primary"
+                indicatorColor="primary"
+                variant={isMobile ? "scrollable" : "standard"}
+              >
+                <Tab label="All Products" />
+                {/* <Tab label="Add Product" /> */}
+                <Tab label="User Info" />
+              </Tabs>
+
+              {!isMobile && (
+                <Button
+                  sx={{ marginTop: "16px", marginBottom: "16px" }}
+                  color="error"
+                  variant="outlined"
+                  fullWidth
+                  onClick={handleSignOut}
+                >
+                  Log Out
+                </Button>
+              )}
+            </Grid>
+            <Grid item xs={isMobile ? 12 : 10}>
+              {activeTab === 0 && (
+                <Card>
+                  <CardContent>
+                    <ProductsTable
+                      products={products}
+                      updateProduct={updateProduct}
+                    />
+                  </CardContent>
+                </Card>
+              )}
+              {/* {activeTab === 1 && (
               <Card>
                 <CardContent>
                   <Typography variant="h5">Add A New Product</Typography>
@@ -130,13 +137,14 @@ const AdminDashboard = ({ user, products }) => {
                 </CardContent>
               </Card>
             )} */}
-            {activeTab === 1 && (
-              <UserCard isMobile={isMobile} userData={userData} />
-            )}
+              {activeTab === 1 && (
+                <UserCard isMobile={isMobile} userData={userData} />
+              )}
+            </Grid>
           </Grid>
-        </Grid>
-      </Container>
-    </div>
+        </Container>
+      </div>
+    </>
   );
 };
 
