@@ -25,6 +25,10 @@ export default function Home({ products }) {
           property="og:description"
           content="Optimus Battery makes reliable batteries for IPS, UPS and Inverters with capacity ranges from 100, 130, 165, 200 and 230..."
         />
+        <meta
+          property="og:image"
+          content="https://i.ibb.co/cTp84SB/og-for-home.jpg"
+        />
       </Head>
 
       <main>
