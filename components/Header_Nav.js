@@ -91,7 +91,7 @@ export default function HeaderNav(props) {
               <Link href="/">
                 <Image
                   src={optimusLogo}
-                  placeholder="blur"
+                  placeholder="empty"
                   width={150}
                   height={25}
                   alt="Optimus battery logo"
