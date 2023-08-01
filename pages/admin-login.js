@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -24,7 +25,7 @@ const LoginPage = () => {
   return (
     <>
       <Head>
-        <title>Optimus Battery- Admin Login</title>
+        <title>Optimus Battery- Login</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="robots" content="noindex,nofollow" />
       </Head>
