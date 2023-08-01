@@ -8,10 +8,16 @@ import theme from "../config/theme";
 import createEmotionCache from "../config/createEmotionCache";
 import Layout from "../components/Layout";
 import { useRouter } from "next/router";
+import { Roboto } from "@next/font/google";
 // Client-side cache shared for the whole session
 // of the user in the browser.
 
 const clientSideEmotionCache = createEmotionCache();
+
+const roboto = Roboto({
+  weight: ["300", "400", "500", "700"],
+  subsets: ["latin"],
+});
 
 export default function MyApp(props) {
   const router = useRouter();
@@ -21,26 +27,33 @@ export default function MyApp(props) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
   return (
-    <CacheProvider value={emotionCache}>
-      <Head>
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
-      </Head>
-      <ThemeProvider theme={theme}>
-        {/* CssBaseline kickstart an elegant, 
+    <>
+      <style jsx global>{`
+        html {
+          font-family: ${roboto.style.fontFamily};
+        }
+      `}</style>
+      <CacheProvider value={emotionCache}>
+        <Head>
+          <meta name="viewport" content="initial-scale=1, width=device-width" />
+        </Head>
+        <ThemeProvider theme={theme}>
+          {/* CssBaseline kickstart an elegant, 
                 consistent, and simple baseline to
                 build upon. */}
-        <CssBaseline />
-        <>
-          {isExcludedRoute ? (
-            <Component {...pageProps} />
-          ) : (
-            <Layout>
+          <CssBaseline />
+          <>
+            {isExcludedRoute ? (
               <Component {...pageProps} />
-            </Layout>
-          )}
-        </>
-      </ThemeProvider>
-    </CacheProvider>
+            ) : (
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+            )}
+          </>
+        </ThemeProvider>
+      </CacheProvider>
+    </>
   );
 }
 
