@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+Allow: /#all-products
+Allow: /condition-of-use
+Allow: /maintenance-tips
+Allow: /products/optimus-100ah
+Allow: /products/optimus-130ah
+Allow: /products/optimus-165ah
+Allow: /products/optimus-165ah
+Allow: /products/optimus-200ah-flat-plate-battery
+Allow: /products/optimus-230ah-flat-plate-battery
+Allow: /products/optimus-230ah
+
+Disallow: /404
+Disallow: /500
+Disallow: /admin-login
+Disallow: /admin-dashboard
+Disallow: /unauthorized
+Disallow: /api
+Disallow: /terms-and-conditions
+Disallow: /privacy-policy
+Disallow: /*.swf
+Disallow: /*/?
+Disallow: /*/trackback/
+Disallow: /listing/
