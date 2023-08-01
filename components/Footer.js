@@ -99,11 +99,12 @@ export default function Footer() {
                   variant="h6"
                   component="h2"
                   sx={{ fontWeight: "700" }}
+                  gutterBottom
                 >
                   Quick Links
                 </Typography>
 
-                <Stack spacing={0}>
+                <Stack spacing={1}>
                   {quickLinksMenu.map((product, idx) => (
                     <Link href={product.link} key={idx}>
                       <MuiLink
@@ -125,10 +126,11 @@ export default function Footer() {
                   variant="h6"
                   component="h2"
                   sx={{ fontWeight: "700" }}
+                  gutterBottom
                 >
                   Products
                 </Typography>
-                <Stack spacing={0}>
+                <Stack spacing={1}>
                   {productsMenu.map((product, idx) => (
                     <Link href={product.link} key={idx}>
                       <MuiLink
@@ -150,10 +152,11 @@ export default function Footer() {
                   variant="h6"
                   component="h2"
                   sx={{ fontWeight: "700" }}
+                  gutterBottom
                 >
                   Legal
                 </Typography>
-                <Stack spacing={0}>
+                <Stack spacing={1}>
                   {legalMenu.map((product, idx) => (
                     <Link href={product.link} key={idx}>
                       <MuiLink
