@@ -75,6 +75,7 @@ const AdminDashboard = ({ user, products }) => {
         <link rel="icon" href="/favicon.ico" />
         <meta name="robots" content="noindex,nofollow" />
       </Head>
+
       <div>
         <AppBar position="static">
           <Toolbar>
@@ -88,6 +89,7 @@ const AdminDashboard = ({ user, products }) => {
             )}
           </Toolbar>
         </AppBar>
+
         <Container maxWidth="lg" sx={{ marginTop: "20px" }}>
           <Grid container spacing={3}>
             <Grid item xs={isMobile ? 12 : 2}>
