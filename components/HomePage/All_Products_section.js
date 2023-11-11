@@ -9,6 +9,8 @@ import Link from "next/link";
 import Typography from "@mui/material/Typography";
 
 export default function AllProductsSection({ products }) {
+  console.log(products);
+
   return (
     <section id="all-products">
       <Container
@@ -39,7 +41,11 @@ export default function AllProductsSection({ products }) {
                 >
                   <Box sx={{ px: 6 }}>
                     <Image
-                      src={`/images/${product.images[0]}`}
+                      src={
+                        product.images[0].startsWith("https")
+                          ? product.images[0]
+                          : `/images/${product.images[0]}`
+                      }
                       width={250}
                       height={250}
                       alt={`${product.model} battery for ips/ups/inverter`}
