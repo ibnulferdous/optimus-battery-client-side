@@ -20,10 +20,6 @@ const roboto = Roboto({
 });
 
 export default function MyApp(props) {
-  const router = useRouter();
-  const excludedRoutes = ["/admin-login", "/admin-dashboard"];
-  const isExcludedRoute = excludedRoutes.includes(router.pathname);
-
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
   return (
@@ -42,15 +38,9 @@ export default function MyApp(props) {
                 consistent, and simple baseline to
                 build upon. */}
           <CssBaseline />
-          <>
-            {isExcludedRoute ? (
-              <Component {...pageProps} />
-            ) : (
-              <Layout>
-                <Component {...pageProps} />
-              </Layout>
-            )}
-          </>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
         </ThemeProvider>
       </CacheProvider>
     </>
