@@ -16,9 +16,8 @@ const ProductImage = ({ images, model }) => {
     <>
       <Paper variant="outlined" square>
         <Image
-          src={`/images/${imageUrl}`}
+          src={imageUrl.startsWith("https") ? imageUrl : `/images/${imageUrl}`}
           alt={`${model} battery for ips/ups/inverter`}
-          placeholder="empty"
           width={550}
           height={550}
           priority={true}
@@ -53,7 +52,7 @@ const ProductImage = ({ images, model }) => {
                 onClick={() => setImageUrl(image)}
               >
                 <Image
-                  src={`/images/${image}`}
+                  src={image.startsWith("https") ? image : `/images/${image}`}
                   alt={`${model} battery for ips/ups/inverter`}
                   placeholder="empty"
                   width={50}
