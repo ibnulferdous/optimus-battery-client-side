@@ -54,7 +54,6 @@ const ProductImage = ({ images, model }) => {
                 <Image
                   src={image.startsWith("https") ? image : `/images/${image}`}
                   alt={`${model} battery for ips/ups/inverter`}
-                  placeholder="empty"
                   width={50}
                   height={50}
                   priority={true}

@@ -9,8 +9,6 @@ import Link from "next/link";
 import Typography from "@mui/material/Typography";
 
 export default function AllProductsSection({ products }) {
-  console.log(products);
-
   return (
     <section id="all-products">
       <Container
