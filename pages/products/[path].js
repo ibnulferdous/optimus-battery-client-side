@@ -24,6 +24,8 @@ export default function SingleProduct({ product }) {
     images,
   } = product;
 
+  console.log(product);
+
   return (
     <>
       {/* Head part for meta data */}
@@ -97,7 +99,7 @@ export async function getStaticPaths() {
 
     return {
       paths,
-      fallback: true,
+      fallback: false,
     };
   } catch (e) {
     console.error(e);
