@@ -99,7 +99,7 @@ export async function getStaticPaths() {
 
     return {
       paths,
-      fallback: false,
+      fallback: "blocking",
     };
   } catch (e) {
     console.error(e);
@@ -115,6 +115,14 @@ export async function getStaticProps({ params }) {
     const db = client.db("optimus_battery");
 
     const product = await db.collection("products").findOne({ path });
+
+    console.log(product);
+
+    if (!product) {
+      return {
+        notFound: true,
+      };
+    }
 
     return {
       props: { product: JSON.parse(JSON.stringify(product)) },
