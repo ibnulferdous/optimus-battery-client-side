@@ -24,8 +24,6 @@ export default function SingleProduct({ product }) {
     images,
   } = product;
 
-  console.log(product);
-
   return (
     <>
       {/* Head part for meta data */}
@@ -115,8 +113,6 @@ export async function getStaticProps({ params }) {
     const db = client.db("optimus_battery");
 
     const product = await db.collection("products").findOne({ path });
-
-    console.log(product);
 
     if (!product) {
       return {
