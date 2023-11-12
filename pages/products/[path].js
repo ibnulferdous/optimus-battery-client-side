@@ -24,6 +24,8 @@ export default function SingleProduct({ product }) {
     images,
   } = product;
 
+  console.log(product);
+
   return (
     <>
       {/* Head part for meta data */}
